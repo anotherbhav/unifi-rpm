@@ -1,0 +1,12 @@
+[Unit]
+Description=UniFi Controller
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/java -Xmx2048M -jar /usr/lib/unifi/lib/ace.jar start
+ExecStop=/usr/bin/java -jar /usr/lib/unifi/lib/ace.jar stop
+WorkingDirectory=/usr/lib/unifi
+
+[Install]
+WantedBy=multi-user.target

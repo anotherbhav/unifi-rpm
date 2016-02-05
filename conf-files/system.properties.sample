@@ -1,0 +1,39 @@
+## system.properties
+#
+# each unifi instance requires a set of ports:
+#
+# unifi.http.port=8080     # device inform
+# unifi.https.port=8443    # controller UI / API
+# portal.http.port=8880    # portal redirect port for HTTP
+# portal.https.port=8843   # portal redirect port for HTTPs
+# unifi.db.port=27117      # local-bound port for DB server
+# unifi.stun.port=3478     # UDP port used for STUN
+#
+# system_ip=a.b.c.d        # the IP devices should be talking to for inform
+# unifi.db.nojournal=false # disable mongodb journaling
+# unifi.db.extraargs       # extra mongod args
+#
+## HTTPS options
+# unifi.https.ciphers=TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA
+# unifi.https.sslEnabledProtocols=TLSv1
+#
+# Ports reserved for device redirector. There is no need to open
+# firewall for these ports on controller, however do NOT set
+# controller to use these ports.
+#
+# portal.redirector.port=8881
+# portal.redirector.port.wired=8882
+#
+
+# # Undocumented/Overrride Variables that may be useful
+
+# ## set the logg levels to 'debug' or 'info' for various levels of debugging
+# debug.device=info
+# debug.mgmt=info
+
+# ## Set the web interface to port 443 and use TLSv1.2
+# unifi.https.ciphers=TLS_RSA_WITH_AES_256_CBC_SHA
+
+# ## set unifi controller on a regular port and set TLS v1.2
+# unifi.https.port=443
+# unifi.https.sslEnabledProtocols=TLSv1.2
