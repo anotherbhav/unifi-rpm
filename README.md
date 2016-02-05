@@ -1,20 +1,22 @@
 # Description
-- a script to build the UniFi Controller as an RPM
-    - https://www.ubnt.com/download/unifi
+- a script to build Ubiquiti's [UniFi Controller][https://www.ubnt.com/download/unifi] as a CentOS 7 RPM
 - Why? UniFi does not provide a package for CentOS 7 so here is a script to build one
 
+# Dependencies
+- [FPM][https://github.com/jordansissel/fpm]
+
 # Usage
-Get this script:
+Get this script:  
 `git clone https://github.com/anotherbhav/unifi-pkg-builder.git`
 `cd build-unifi-rpm`
 
-Download Unifi Pkg you want to build:
+Download Unifi Pkg you want to build:  
 `curl -OL http://dl.ubnt.com/unifi/4.8.12/UniFi.unix.zip`
 
-Build the Package with some flags defined:
+Build the Package with some flags defined:  
 `./build-unifi-rpm.sh --buildversion 4.8.12 --file UniFi.unix.zip --iteration 1.el7.xyzcorp`
 
-Verify built package if you want:
+Verify built package if you want:  
 `rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-4.8.12-1.el7.xyzcorp.x86_64.rpm`
 
 # Variables
