@@ -7,17 +7,25 @@
 
 # Usage
 Get this script
+
     $ git clone https://github.com/anotherbhav/unifi-pkg-builder.git
     $ cd unifi-pkg-builder
 
-Download Unifi Pkg you want to build
+
+Download Unifi Pkg you want to build  
+
     $ curl -OL http://dl.ubnt.com/unifi/4.8.12/UniFi.unix.zip
 
-Build the Package with some flags defined:  
+
+Build the Package with some flags defined
+
     $ ./build-unifi-rpm.sh --buildversion 4.8.12 --file UniFi.unix.zip --iteration 1.el7.xyzcorp
 
-Verify built package if you want:  
+
+Verify built package if you want
+
     $ rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-4.8.12-1.el7.xyzcorp.x86_64.rpm
+
 
 # Variables
 - modify the Static Variables at the beginning of the script if you want to run the script without commands
