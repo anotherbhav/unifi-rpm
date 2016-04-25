@@ -250,6 +250,17 @@ fi
 chmod -R g-w "$INSTALLDIR"
 
 echoinfo "using FPM to build the package"
+
+loggdebug "using following variables in FPM command:"
+loggdebug " -t ${PKGTYPE} \\"
+loggdebug " -n ${PKGNAME} \\"
+loggdebug " -v ${VERSION} \\"
+loggdebug " --iteration ${ITERVER} \\"
+loggdebug " --before-upgrade $INSTALLDIR/scripts/before-upgrade.sh \\"
+loggdebug " --after-upgrade $INSTALLDIR/scripts/after-upgrade.sh \\"
+loggdebug " --package \"$PKG_DIR\" \\"
+loggdebug " -C \"${INSTALLDIR}\" usr/"
+echo
 echoinfo "--- fpm output starts ---"
 fpm \
 -s dir \
@@ -264,8 +275,8 @@ fpm \
 --license 'GPLv3' \
 --url 'https://www.ubnt.com/download/unifi/unifi-ap' \
 --config-files /usr/lib/unifi/data/ \
---before-upgrade scripts/before-upgrade.sh \
---after-upgrade scripts/after-upgrade.sh \
+--before-upgrade $INSTALLDIR/scripts/before-upgrade.sh \
+--after-upgrade $INSTALLDIR/scripts/after-upgrade.sh \
 --package "$PKG_DIR" \
 -C "${INSTALLDIR}" usr/
 echoinfo "--- fpm output ends ---"
