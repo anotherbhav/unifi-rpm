@@ -31,3 +31,6 @@ systemctl start $PKGNAME
 sleep 10
 
 systemctl status $PKGNAME
+
+# See if this fixes the warning after install when running `systemctl status unifi`
+systemctl daemon-reload
