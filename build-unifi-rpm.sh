@@ -225,6 +225,26 @@ if [ $? -gt 0 ] ; then
     exit 1
 fi
 
+# copy scripts
+# These scripts are not installed on the system
+# they are used durint the upgrade process
+loggdebug "creating scripts directory"
+mkdir -p scripts
+
+echoinfo "move scripts into directory"
+cp -v "${SCRIPT_PATH}/conf-files/before-upgrade.sh" "scripts/" > /dev/null 2>&1
+cp -v "${SCRIPT_PATH}/conf-files/after-upgrade.sh" "scripts/" > /dev/null 2>&1
+
+echoinfo "move script files to the install directory"
+mv -v scripts "$INSTALLDIR" > /dev/null 2>&1
+
+if [ $? -gt 0 ] ; then
+    echofail "could not move files to install DIR"
+    echofail "error with: mv -v scripts $INSTALLDIR"
+    exit 1
+fi
+
+
 # if you let the group have write permissions, these files
 # are not included by FPM. - unsure why
 chmod -R g-w "$INSTALLDIR"
@@ -244,6 +264,8 @@ fpm \
 --license 'GPLv3' \
 --url 'https://www.ubnt.com/download/unifi/unifi-ap' \
 --config-files /usr/lib/unifi/data/ \
+--before-upgrade scripts/before-upgrade.sh \
+--after-upgrade scripts/after-upgrade.sh \
 --package "$PKG_DIR" \
 -C "${INSTALLDIR}" usr/
 echoinfo "--- fpm output ends ---"

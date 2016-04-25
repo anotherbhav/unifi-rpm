@@ -7,7 +7,7 @@ DEBUG=1
 PKGNAME='unifi'
 
 loggdebug() {
-    $DEBUG && echo -e "DEBUG=> $1"
+    echo $DEBUG && echo -e "DEBUG=> $1"
 }
 echopass () {
    echo -e "\e[00;32mPASS\e[00m: $1"
@@ -46,23 +46,25 @@ systemctl status $PKGNAME
 #   done
 # fi
 
-echodebug "stop unifi controller"
+loggdebug "stop unifi controller"
 systemctl stop $PKGNAME
 sleep 10
 
 systemctl status $PKGNAME
 
 TARGET_FNAME=`date "+unifi_backup_%Y-%m-%d_%H%M.tar"`
-echodebug "target file path is: $TARGET_PATH"
+loggdebug "target file path is: $TARGET_PATH"
 
 TARGET_PATH="/var/tmp/$TARGET_FNAME"
-echodebug "target path is: $TARGET_PATH"
+loggdebug "target path is: $TARGET_PATH"
 
-echodebug "cd to unifi backup dir"
+loggdebug "cd to unifi backup dir"
 cd /usr/lib/unifi/data/
-echodebug "cwd $PWD"
+loggdebug "cwd $PWD"
 
 tar cvzf $TARGET_PATH .
 echopass "backup created: $TARGET_PATH"
 
+loggdebug "cd to whatever dir you were in before"
 cd -
+loggdebug "cwd $PWD"
