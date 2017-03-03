@@ -27,10 +27,9 @@ Verify built package if you want
     $ rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-5.8.3-1.el7.xyzcorp.x86_64.rpm
 
 
-# Known Good Versions
-
-Versions that I have built and used
-- 5.3.8
+# Tested Versions
+Versions that I have built and used successfully
+- 5.8.3
 - every previous 4.x build
 
 # Variables
