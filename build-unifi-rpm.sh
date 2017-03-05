@@ -7,7 +7,7 @@
 ### --- Static Variables START ---
 PKGTYPE="rpm" # we are building an RPM package
 PKGNAME="unifi"
-VERSION="5.8.3" # can't get version from the Unifi.unix.zip file... not sure where it is
+VERSION="5.4.11" # can't get version from the Unifi.unix.zip file... not sure where it is
 FILE_PATH="./UniFi.unix.zip" # by default, search the current directory
 
 # for RPM's this gets added on after the version
