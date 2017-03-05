@@ -9,7 +9,7 @@
 Get this script
 
     $ git clone https://github.com/anotherbhav/unifi-rpm/
-    $ cd unifi-pkg-builder
+    $ cd unifi-rpm
 
 
 Download Unifi Pkg you want to build  
