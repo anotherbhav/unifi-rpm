@@ -19,7 +19,7 @@ Download Unifi Pkg you want to build
 
 Build the Package with some flags defined
 
-    $ ./build-unifi-rpm.sh --buildversion 5.4.11.2 --file UniFi.unix.zip --iteration 1.el7.xyzcorp
+    $ ./build-unifi-rpm.sh --buildversion 5.4.11 --file UniFi.unix.zip --iteration 1.el7.xyzcorp
 
 
 Verify built package if you want
