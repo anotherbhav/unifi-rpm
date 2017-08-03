@@ -14,7 +14,7 @@ Get this script
 
 Download Unifi Pkg you want to build  
 
-    $ curl -OL https://www.ubnt.com/downloads/unifi/5.4.11-xxxxxx/UniFi.unix.zip (get this link from the Unifi Beta Forum as the DIY Package)
+    $ curl -OL https://www.ubnt.com/downloads/unifi/5.5.20/UniFi.unix.zip (get this link from the Unifi Beta Forum as the DIY Package)
 
 
 Build the Package with some flags defined
