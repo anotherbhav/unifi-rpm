@@ -12,19 +12,22 @@ Get this script
     $ cd unifi-rpm
 
 
-Download Unifi Pkg you want to build  
+set the target version
+    $ TARGET=5.7.20
 
-    $ curl -OL https://www.ubnt.com/downloads/unifi/5.5.20/UniFi.unix.zip (get this link from the Unifi Beta Forum as the DIY Package)
+Download Unifi Pkg you want to build (this link should work, otherwise get this link from the UniFi Beta Forum as the DIY Package)
+
+    $ curl -OL https://www.ubnt.com/downloads/unifi/${TARGET}/UniFi.unix.zip
 
 
 Build the Package with some flags defined
 
-    $ ./build-unifi-rpm.sh --buildversion 5.4.11 --file UniFi.unix.zip --iteration 1.el7.xyzcorp
+    $ ./build-unifi-rpm.sh --buildversion $TARGET --file UniFi.unix.zip --iteration 1.el7.xyzcorp
 
 
 Verify built package if you want
 
-    $ rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-5.4.11-1.el7.xyzcorp.x86_64.rpm
+    $ rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-${TARGET}-1.el7.xyzcorp.x86_64.rpm
 
 # Notes
 
@@ -37,12 +40,16 @@ Verify built package if you want
 - backup is created to `/var/tmp/unifi_backup_*.tar`
   - this takes a WHILE becuase the mongo DB is usually multiple GB in size to backup
   - the line it freezes on for me is `Running transaction`
+  - if you want to track the backup size you can pop another terminal and run 'watch ls -lhart /var/tmp/'
 - upgrade is performed
 - unifi service is restarted
 
 
 # Tested Versions
 Versions that I have built and used (usually through upgrade) successfully
+- 5.7.20 (tested 2018-05-11) - requires java1.8
+- 5.6.22 (tested 2017-12-27)
+- 5.5.20
 - 5.4.11
 - 5.3.8
 - every previous 4.x build

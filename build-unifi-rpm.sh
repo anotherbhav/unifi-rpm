@@ -268,7 +268,7 @@ fpm \
 -n ${PKGNAME} \
 -v ${VERSION} \
 --iteration ${ITERVER} \
--d java-1.7.0-openjdk \
+-d java-1.8.0-openjdk \
 -d mongodb-server \
 -d mongodb \
 --description 'Ubiquiti UniFi Controller' \
