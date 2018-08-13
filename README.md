@@ -13,21 +13,25 @@ Get this script
 
 
 set the target version
-    $ TARGET=5.7.20
+
+    export TARGET=5.7.20
 
 Download Unifi Pkg you want to build (this link should work, otherwise get this link from the UniFi Beta Forum as the DIY Package)
 
-    $ curl -OL https://www.ubnt.com/downloads/unifi/${TARGET}/UniFi.unix.zip
+    curl -OL https://www.ubnt.com/downloads/unifi/${TARGET}/UniFi.unix.zip
 
+set the target version
+
+        export ITERATION=1.el7.xyzcorp
 
 Build the Package with some flags defined
 
-    $ ./build-unifi-rpm.sh --buildversion $TARGET --file UniFi.unix.zip --iteration 1.el7.xyzcorp
+        ./build-unifi-rpm.sh
 
 
 Verify built package if you want
 
-    $ rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-${TARGET}-1.el7.xyzcorp.x86_64.rpm
+    rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-${TARGET}-1.el7.xyzcorp.x86_64.rpm
 
 # Notes
 
@@ -60,3 +64,9 @@ Versions that I have built and used (usually through upgrade) successfully
 
 # Other
 Get some help: `./build-unifi-rpm.sh --help`
+
+## Build RPM with without env Variables
+
+Build the Package with some flags defined
+
+    ./build-unifi-rpm.sh --buildversion $TARGET --file UniFi.unix.zip --iteration 1.el7.xyzcorp

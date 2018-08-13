@@ -7,12 +7,13 @@
 ### --- Static Variables START ---
 PKGTYPE="rpm" # we are building an RPM package
 PKGNAME="unifi"
-VERSION="5.4.11" # can't get version from the Unifi.unix.zip file... not sure where it is
+VERSION="$TARGET" # 5.7.28 for example - can't get version from the Unifi.unix.zip file... not sure where it is
 FILE_PATH="./UniFi.unix.zip" # by default, search the current directory
 
 # for RPM's this gets added on after the version
 # useful if you are testing multiple builds of the same version
-ITERVER="1.el7.xyzcorp"
+# example: 1.el7.xyzcorp
+ITERVER="$ITERATION"
 
 BUILDROOT_DIR="/data/rpmbuild/build/BUILDROOT" # where the package version will get built; 'installed'
 PKG_DIR="/data/rpmbuild/build/RPMS/x86_64" # where the install package will end up
