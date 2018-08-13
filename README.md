@@ -12,26 +12,25 @@ Get this script
     $ cd unifi-rpm
 
 
-set the target version
+Set the target and iteration version
 
-    export TARGET=5.7.20
+    export TARGET=5.8.24
+    export ITERATION=1.el7.xyzcorp
 
-Download Unifi Pkg you want to build (this link should work, otherwise get this link from the UniFi Beta Forum as the DIY Package)
+
+Download Unifi pkg you want to build (this link should work, otherwise get this link from the UniFi Beta Forum as the DIY Package). If the package is available on the official ubnt.com downloads site then it should work with the command below.
 
     curl -OL https://www.ubnt.com/downloads/unifi/${TARGET}/UniFi.unix.zip
 
-set the target version
-
-        export ITERATION=1.el7.xyzcorp
 
 Build the Package with some flags defined
 
-        ./build-unifi-rpm.sh
+    ./build-unifi-rpm.sh
 
 
 Verify built package if you want
 
-    rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-${TARGET}-1.el7.xyzcorp.x86_64.rpm
+    rpm -qpi /data/rpmbuild/build/RPMS/x86_64/unifi-${TARGET}-${ITERATION}.x86_64.rpm
 
 # Notes
 
@@ -51,6 +50,8 @@ Verify built package if you want
 
 # Tested Versions
 Versions that I have built and used (usually through upgrade) successfully
+- 5.8.24 (tested 2018-08-13)
+- 5.7.24 (tested 2018-08-13)
 - 5.7.20 (tested 2018-05-11) - requires java1.8
 - 5.6.22 (tested 2017-12-27)
 - 5.5.20
