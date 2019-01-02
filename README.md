@@ -50,6 +50,7 @@ Verify built package if you want
 
 # Tested Versions
 Versions that I have built and used (usually through upgrade) successfully
+- 5.9.29 (tested 2019-01-02)
 - 5.8.24 (tested 2018-08-13)
 - 5.7.24 (tested 2018-08-13)
 - 5.7.20 (tested 2018-05-11) - requires java1.8
