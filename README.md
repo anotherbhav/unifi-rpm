@@ -50,6 +50,7 @@ Verify built package if you want
 
 # Tested Versions
 Versions that I have built and used (usually through upgrade) successfully
+- 5.13.32 (tested 2020-07-07)
 - 5.9.29 (tested 2019-01-02)
 - 5.8.24 (tested 2018-08-13)
 - 5.7.24 (tested 2018-08-13)
